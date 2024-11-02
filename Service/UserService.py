@@ -15,3 +15,6 @@ class UserService:
             return Result(True, "登录成功")
         else:
             return Result(False, "用户名或密码错误")
+
+    def getById(self, userId):
+        return self.useMapper.getById(userId)
