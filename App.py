@@ -34,7 +34,7 @@ class App(tk.Tk):
     def show_login_view(self):  # self.show_register_view是一个函数参数
         if self.current_view:
             self.current_view.destroy()  # 传入跳转view的函数，Login成功跳转Index，或点击按钮跳转register
-        self.current_view = LoginView(self, self.show_register_view, self.show_index_view, self.set_context_user_id)
+        self.current_view = LoginView(self, self.show_register_view, self.show_index_view)
         self.current_view.pack(fill="both", expand=True)  # fill 填充方向x，y expand填充方式，铺满
 
     def show_register_view(self):
@@ -64,7 +64,7 @@ class App(tk.Tk):
     def show_user_view(self):
         if self.current_view:
             self.current_view.destroy()
-        self.current_view = UserView(self, self.show_index_view, self.user_id)
+        self.current_view = UserView(self, self.show_index_view)
         self.current_view.pack(fill="both", expand=True)
 
     #  -----------------业务逻辑回调函数

@@ -1,4 +1,7 @@
 import tkinter as tk
+
+from POPO.AppState import AppState
+from POPO.User import User
 from .BaseView import BaseView
 from Service.UserService import UserService
 
@@ -6,12 +9,11 @@ userService = UserService()
 
 
 class LoginView(BaseView):
-    def __init__(self, master, switch_to_register, switch_to_index, set_context_user_id):
+    def __init__(self, master, switch_to_register, switch_to_index):
         super().__init__(master)
         # 赋予各种回调方法
         self.switch_to_index = switch_to_index
         self.switch_to_register = switch_to_register  # 这里传递
-        self.set_context_user_id = set_context_user_id
 
         # 页面构建方法
         self.create_widgets()
@@ -43,7 +45,7 @@ class LoginView(BaseView):
         result = userService.checkLogin(user_id, password)
         if result.is_success():
             self.label_status.config(text=result.get_message())
-            self.set_context_user_id(user_id)  # 调用父类的设置方法，传递id（这里可以修改成传递user对象）
+            AppState().setContextUser(User(user_id, None, password))
             self.switch_to_index()  # 回调进入index页面的函数参数，容器摧毁当前页面，重新进入新页面
         else:
             self.label_status.config(text=result.get_message())
