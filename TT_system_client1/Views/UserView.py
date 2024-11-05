@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from POPO.AppState import AppState
+from TT_system_sever.POPO.AppState import AppState
 from .BaseView import BaseView
 
 

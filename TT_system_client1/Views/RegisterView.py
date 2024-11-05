@@ -1,8 +1,9 @@
 import tkinter as tk
 from .BaseView import BaseView
-from Service.UserService import UserService
+from TT_system_sever.Service.UserService import UserService
 
-user_service = UserService()
+user_service = UserService()  # 这里一样不能再写服务端逻辑了
+
 
 class RegisterView(BaseView):
     def __init__(self, master, switch_to_login):

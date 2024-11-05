@@ -1,5 +1,4 @@
 import mysql.connector
-from POPO.Result import Result
 
 
 # 连接数据库

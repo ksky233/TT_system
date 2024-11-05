@@ -1,5 +1,5 @@
 import tkinter as tk
-from Service.UserService import UserService
+from TT_system_sever.Service import UserService
 
 user_service = UserService()
 

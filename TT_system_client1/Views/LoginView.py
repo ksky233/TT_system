@@ -1,11 +1,11 @@
 import tkinter as tk
 
-from POPO.AppState import AppState
-from POPO.User import User
+from TT_system_client1.POPO.AppState import AppState
+from TT_system_client1.POPO.User import User
 from .BaseView import BaseView
-from Service.UserService import UserService
 
-userService = UserService()
+
+# userService = UserService() 客户端页面信息的获取，不能再直接使用服务端的业务了，需要发送网络请求
 
 
 class LoginView(BaseView):
@@ -42,10 +42,10 @@ class LoginView(BaseView):
         user_id = self.entry_login_user_id.get()
         password = self.entry_login_password.get()
 
-        result = userService.checkLogin(user_id, password)
-        if result.is_success():
-            self.label_status.config(text=result.get_message())
-            AppState().setContextUser(User(user_id, None, password))
+        # result = userService.checkLogin(user_id, password) 这里不能再直接用服务端方法向数据库请求数据了，应该使用网络请求
+        if password:  # 这里的数据暂时写死
+            self.label_status.config(text="result.get_message()")
+            AppState().setContextUser(User(user_id, None, password))  # 这里的状态共享是属于客户端的
             self.switch_to_index()  # 回调进入index页面的函数参数，容器摧毁当前页面，重新进入新页面
         else:
-            self.label_status.config(text=result.get_message())
+            self.label_status.config(text="result.get_message()")

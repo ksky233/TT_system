@@ -1,5 +1,4 @@
 # 单例模式管理全局属性
-from POPO.User import User
 
 class AppState:
     _instance = None

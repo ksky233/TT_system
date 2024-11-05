@@ -1,12 +1,11 @@
 import tkinter as tk
 
-from Service.UserService import UserService
-from Views.LoginView import LoginView
-from Views.IndexView import IndexView
-from Views.TicketView import TicketView
-from Views.OrderView import OrderView
-from Views.UserView import UserView
-from Views.RegisterView import RegisterView
+from TT_system_client1.Views.LoginView import LoginView
+from TT_system_client1.Views.IndexView import IndexView
+from TT_system_client1.Views.TicketView import TicketView
+from TT_system_client1.Views.OrderView import OrderView
+from TT_system_client1.Views.UserView import UserView
+from TT_system_client1.Views.RegisterView import RegisterView
 
 '''
 一个显示页面的函数，包含回调函数作为参数，当这个页面完成其逻辑需要跳转时，就调用这个回调函数进行跳转
@@ -18,7 +17,6 @@ App构造时，调用self.show_login_view()，将当前页面设置为self.curre
 以此类推，来管理整个App的页面
 '''
 
-userServie = UserService()
 
 
 class App(tk.Tk):
